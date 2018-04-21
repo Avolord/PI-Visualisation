@@ -1,0 +1,33 @@
+<html>
+<head>
+<script>
+var FILE;
+var DIDGIT;
+let reader = new FileReader();
+
+function read(file) {
+  reader.onload = function() {
+    DIDGIT = reader.result;
+  };
+    reader.readAsText(file);
+}
+
+function save(file) {
+  document.getElementById("ac").style.visibility = "collapse";
+FILE = file;
+read(FILE,count);
+}
+</script>
+</head>
+<body onload="setup()">
+<input type='file' id="ac" accept='text/plain' onchange='save(event.target.files[0])'><br>
+</div>
+<a id="download" download="PI_By_Avolord.png"><button type="button" onClick="download()">Download</button></a>
+</body>
+<script src="AvoLib.js"></script>
+<script>
+Canvas = new CanDraw(2000,2000,"black",2);
+//Canvas.Translate(0,0);
+</script>
+<script src="setup.js"></script>
+</html>
